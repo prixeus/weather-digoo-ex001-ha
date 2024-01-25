@@ -1,4 +1,5 @@
 import math
+import logging
 
 class Sensor:
   def __init__(self):
@@ -25,12 +26,12 @@ class Sensor:
     return math.floor((raw - 1220) / 1.8) / 10
 
   def OutputValues(self):
-    print("Temperature: %.1f°C" % self.Temperature )
-    print("Humidity: %i%%" % self.Humidity )
-    print("Max Temperature: %.1f°C" % self.MaxTemperature )
-    print("Max Humidity: %i%%" % self.MaxHumidity )
-    print("Min Temperature: %.1f°C" % self.MinTemperature )
-    print("Min Humidity: %i%%" % self.MinHumidity )
+    logging.info("Temperature: %.1f°C" % self.Temperature )
+    logging.info("Humidity: %i%%" % self.Humidity )
+    logging.info("Max Temperature: %.1f°C" % self.MaxTemperature )
+    logging.info("Max Humidity: %i%%" % self.MaxHumidity )
+    logging.info("Min Temperature: %.1f°C" % self.MinTemperature )
+    logging.info("Min Humidity: %i%%" % self.MinHumidity )
 
   @property
   def Humididty(self):

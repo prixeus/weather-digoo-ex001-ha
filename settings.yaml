@@ -1,0 +1,6 @@
+mqtt:
+  host:
+  username:
+  password:
+  hatopic: homeassistant
+  basetopic: weatherPi

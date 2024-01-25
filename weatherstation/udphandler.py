@@ -1,15 +1,11 @@
 import socket
 from digoodata import DigooData
-import os
 import asyncio
-import sys
+import logging
 
 HOST, PORT = '0.0.0.0', 17000
 sock = socket.socket(socket.AF_INET,  # Internet
                          socket.SOCK_DGRAM)  
-
-
-
 
 class UDPHandler():
   class __Factory(asyncio.DatagramProtocol):
@@ -37,9 +33,9 @@ class UDPHandler():
   async def startListening(self):
     loop = asyncio.get_running_loop()
     await loop.create_datagram_endpoint(lambda : self.__Factory(self), local_addr=(HOST,PORT))
-    print("server created")
+    logging.info("server created")
 
   def decode_weather(self, data: bytearray):
-    print("Digoo data received")
+    logging.info("Digoo data received")
     self.__digooData.Update(data)
 
